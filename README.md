@@ -7,7 +7,7 @@ Using a simple cfg file to setup target label with its x, y, z.
 
 `Usage: ./tp [player] <location>`  
 
-In order to add a new location, for example, to add a "basement" (-72, 45, 128) what you need is to simply add a newline:  
+In order to add a new location, for example, to add a "basement" (-72, 45, 128), what you need is to simply add a newline:  
 
 `locations["basement"]=-72,45,128`  
 
