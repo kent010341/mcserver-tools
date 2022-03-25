@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [ '$1' == "--help" ] || [ '$1' == "-h" ]; then
+    echo "Usage: ./tp [player] <location>"
+    exit 0
+fi
+
+# global
+CFG_PATH="./tp.cfg"
+
+# read cfg
+source $CFG_PATH
+
+# default
+if [ $# == 1 ]; then 
+    player=$default_player
+    location=$1
+elif [ $# == 2 ]; then
+    player=$1
+    location=$2
+fi
+
+xyz=${locations[$location]}
+
+
+# read targets
+targets=(${xyz//,/ })
+
+command="/tp $player ${targets[0]} ${targets[1]} ${targets[2]}\n"
+screen -r $screen_session_name -X stuff "$command"
+
+echo "tp $player to $location (${locations[$location]})"
