@@ -12,12 +12,16 @@ CFG_PATH="./tp.cfg"
 source $CFG_PATH
 
 # default
-if [ $# == 1 ]; then 
+if [ $# -eq 1 ]; then 
     player=$default_player
     location=$1
-elif [ $# == 2 ]; then
+elif [ $# -eq 2 ]; then
     player=$1
     location=$2
+elif [ $# -eq 0 ]; then
+    echo "[ERROR] at least one argument required."
+else
+    echo "[ERROR] too many argument."
 fi
 
 xyz=${locations[$location]}
